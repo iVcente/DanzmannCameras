@@ -1,0 +1,35 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "DanzmannCameras",
+	"Description": "A modular camera plugin for player-controlled Pawns. Provides reusable, input-driven camera Components that translate look input into Control Rotation, and is the intended home for shared Camera Rigs from Gameplay Cameras.",
+	"Category": "Danzmann",
+	"CreatedBy": "Vicente Danzmann",
+	"CreatedByURL": "https://danzmann.dev/",
+	"DocsURL": "https://github.com/iVcente/DanzmannCameras/blob/main/README.md",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"EnabledByDefault": true,
+	"Modules": [
+		{
+			"Name": "DanzmannCameras",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "DanzmannInput",
+			"Enabled": true
+		},
+		{
+			"Name": "ModularGameplay",
+			"Enabled": true
+		}
+	]
+}
