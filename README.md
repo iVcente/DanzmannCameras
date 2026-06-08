@@ -8,10 +8,10 @@ Pawn-scoped by design and built to sit beside a stock `UGameplayCameraComponent`
 
 ## Concepts
 
-- **`UDanzmannLookComponent`** (`UPawnComponent`, implements `IDanzmannInputBinderInterface`): binds the mouse and gamepad `Look` Input Actions and feeds the owning Pawn's Control Rotation.
+- `UDanzmannLookComponent` (`UPawnComponent`, implements `IDanzmannInputBinderInterface`): binds the mouse and gamepad `Look` Input Actions and feeds the owning Pawn's Control Rotation.
   - `BindInputActions(EIC, Profile)`: binds `InputAction.Look.Mouse` and `InputAction.Look.Gamepad` on `ETriggerEvent::Triggered` to `Input_LookMouse()` / `Input_LookGamepad()`. There is no `Completed` handler -- look is per-frame accumulation consumed by the engine each tick, so there is nothing to clear on release;
   - `Input_LookMouse(Value)`: the mouse value is a per-frame delta scaled by `MouseYaw/PitchSensitivity` and optionally low-pass smoothed (`bSmoothMouseInput`/`MouseSmoothingTime`) to strip hand-tremor micro-jitter;
-  - `Input_LookGamepad(Value)`: the stick value is an analog rate (`-1..1`), so it is scaled by a turn speed (`GamepadYawSpeed/GamepadPitchSpeed`) and delta time;
+  - `Input_LookGamepad(Value)`: the stick value is an analog rate [`-1..1`], so it is scaled by a turn speed (`GamepadYawSpeed/GamepadPitchSpeed`) and delta time;
   - Both handlers call `AddControllerYawInput()`/`AddControllerPitchInput()` on the owning Pawn and never own or write Control Rotation themselves -- `APlayerController::UpdateRotation()` applies (and pitch-clamps) the accumulated input each tick, after which both the Gameplay Camera rig and the Mover Component (via `APlayerController::GetControlRotation()`) read the result.
 - Binding is automatic. The Component implements `IDanzmannInputBinderInterface`, so the owning Pawn's `UDanzmannEnhancedInputComponent` discovers it during the apply scan and calls `BindInputActions()` -- the Pawn never references the Component to wire it up.
 
