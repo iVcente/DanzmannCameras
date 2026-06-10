@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "1.0",
+	"VersionName": "1.1",
 	"FriendlyName": "DanzmannCameras",
 	"Description": "A modular camera plugin for player-controlled Pawns. Provides reusable, input-driven camera Components that translate look input into Control Rotation, and is the intended home for shared Camera Rigs from Gameplay Cameras.",
 	"Category": "Danzmann",
