@@ -4,7 +4,12 @@ Modular camera support for player-controlled Pawns. A Look Component translates 
 
 Pawn-scoped by design and built to sit beside a stock `UGameplayCameraComponent`, not replace it. The plugin is also the intended home for shared Camera Rig assets authored for Epic's Gameplay Cameras framework.
 
-> Depends on the sibling Danzmann plugins `DanzmannInput` and `DanzmannExperiences` (technically not really required, but highly suggested). Look binding rides `DanzmannInput`'s apply pipeline, so the project must set `DefaultInputComponentClass=/Script/DanzmannInput.DanzmannEnhancedInputComponent` in `Config/DefaultInput.ini` and the active Input Profile must pair `InputAction.Look.Mouse` and `InputAction.Look.Gamepad` with `UInputAction`s.
+> Depends on the sibling Danzmann plugins `DanzmannInput` and `DanzmannExperiences` (technically not really required, but highly suggested). Look binding rides `DanzmannInput`'s apply pipeline, so set the project's `DefaultInputComponentClass` variable in `Config/DefaultInput.ini` as the following:
+> ```ini
+> [/Script/Engine.InputSettings]
+> DefaultInputComponentClass=/Script/DanzmannInput.DanzmannEnhancedInputComponent
+> ```
+> Also, the active Input Profile must pair `InputAction.Look.Mouse` and `InputAction.Look.Gamepad` with `UInputAction`s.
 
 ## Concepts
 
